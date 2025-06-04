@@ -23,15 +23,15 @@ import java.time.LocalDateTime;
         private String patientId;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "person_id", nullable = false)
+        @JoinColumn(name = "user_id", referencedColumnName = "userId", nullable = false)
         private User user   ;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "admitted_by")
+        @JoinColumn(name = "admitted_by", referencedColumnName = "staffId")
         private Staff admittedBy;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "supervised_by")
+        @JoinColumn(name = "supervised_by", referencedColumnName = "staffId")
         private Staff supervisedBy;
 
         private LocalDate admittedDate;

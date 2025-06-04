@@ -15,18 +15,18 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Appoinment {
+public class Appointment {
 
         @Id
         @Column(length = 36)
         private String appointmentId;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "patientId", nullable = false)
+        @JoinColumn(name = "patient_id", referencedColumnName = "patientId", nullable = false)
         private Patient patient;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "doctor_id", nullable = false)
+        @JoinColumn(name = "doctor_id", referencedColumnName = "staffId", nullable = false)
         private Staff doctor;
 
         @Column(nullable = false)

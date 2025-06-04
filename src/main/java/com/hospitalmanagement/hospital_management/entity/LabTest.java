@@ -21,20 +21,20 @@ public class LabTest {
         private String testId;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "patient_id", nullable = false)
+        @JoinColumn(name = "patient_id", referencedColumnName = "patientId", nullable = false)
         private Patient patient;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "doctor_id", nullable = false)
+        @JoinColumn(name = "doctor_id", referencedColumnName = "staffId", nullable = false)
         private Staff doctor;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "test_type_id", nullable = false)
-        private Labtesttype testType;
+        @JoinColumn(name = "test_type_id", referencedColumnName = "testTypeId", nullable = false)
+        private LabTestType testType;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "appointmentId")
-        private Appoinment appointment;
+        @JoinColumn(name = "appointment_Id", referencedColumnName = "appointmentId")
+        private Appointment appointment;
 
         @Column(nullable = false)
         private LocalDateTime testDate;

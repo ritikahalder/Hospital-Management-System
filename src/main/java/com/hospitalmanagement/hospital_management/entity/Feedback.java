@@ -23,11 +23,11 @@ public class Feedback {
         private String feedbackId;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "patient_id", nullable = false)
+        @JoinColumn(name = "patient_id", referencedColumnName = "patientId", nullable = false)
         private Patient patient;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "staff_id", nullable = false)
+        @JoinColumn(name = "staff_id", referencedColumnName = "staffId", nullable = false)
         private Staff staff;
 
         @Column

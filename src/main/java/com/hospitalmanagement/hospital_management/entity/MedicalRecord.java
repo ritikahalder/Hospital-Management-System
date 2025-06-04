@@ -16,23 +16,23 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Getter
 @Setter
-public class Medicalrecord {
+public class MedicalRecord {
 
         @Id
         @Column(length = 36)
         private String recordId;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "patient_id", nullable = false)
+        @JoinColumn(name = "patient_id", referencedColumnName = "patientId", nullable = false)
         private Patient patient;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "doctor_id", nullable = false)
+        @JoinColumn(name = "doctor_id", referencedColumnName = "staffId", nullable = false)
         private Staff doctor;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "appointment_id")
-        private Appoinment appointment;
+        @JoinColumn(name = "appointment_id", referencedColumnName = "appointmentId")
+        private Appointment appointment;
 
         @Column(columnDefinition = "TEXT")
         private String diagnosis;

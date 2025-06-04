@@ -24,23 +24,23 @@ import java.time.LocalDateTime;
         private String staffId;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "person_id", nullable = false)
+        @JoinColumn(name = "user_id", referencedColumnName = "userId", nullable = false)
         private User user;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "staff_type_id", nullable = false)
+        @JoinColumn(name = "staff_type_id", referencedColumnName = "staffId", nullable = false)
         private StaffType staffType;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "staff_category_id", nullable = false)
+        @JoinColumn(name = "staff_category_id", referencedColumnName = "staffCategoryId", nullable = false)
         private StaffCategory staffCategory;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "staff_grade_id", nullable = false)
+        @JoinColumn(name = "staff_grade_id", referencedColumnName = "staffGradeId", nullable = false)
         private StaffGrade staffGrade;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "department_id", nullable = false)
+        @JoinColumn(name = "department_id", referencedColumnName = "departmentId", nullable = false)
         private Department department;
 
         @CreationTimestamp

@@ -24,15 +24,15 @@ public class Billing {
         private String billingId;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "patient_id", nullable = false)
+        @JoinColumn(name = "patient_id", referencedColumnName = "patientId", nullable = false)
         private Patient patient;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "appointment_id")
-        private Appoinment appointment;
+        @JoinColumn(name = "appointment_id", referencedColumnName = "appointmentId")
+        private Appointment appointment;
 
         @ManyToOne(fetch = FetchType.LAZY)
-        @JoinColumn(name = "lab_test_id")
+        @JoinColumn(name = "lab_test_id", referencedColumnName = "testId")
         private LabTest labTest;
 
         @Column(precision = 10, scale = 2, nullable = false)
