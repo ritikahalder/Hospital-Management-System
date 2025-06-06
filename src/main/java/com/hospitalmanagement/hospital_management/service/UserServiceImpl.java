@@ -1,6 +1,7 @@
 package com.hospitalmanagement.hospital_management.service;
 
 import com.hospitalmanagement.hospital_management.entity.User;
+import com.hospitalmanagement.hospital_management.exception.DuplicateEmailException;
 import com.hospitalmanagement.hospital_management.exception.NotFoundException;
 import com.hospitalmanagement.hospital_management.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,6 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-
     public Optional<User> getUserById(Long id)
     {
         if(userRepository.findById(id).isEmpty())
@@ -33,8 +33,12 @@ public class UserServiceImpl implements UserService{
         return userRepository.findById(id);
     }
 
+
     @Override
     public User saveUser(User user) {
+        if (userRepository.existsByEmail(user.getEmail())) {
+            throw new DuplicateEmailException("A user with this email " + user.getEmail() + " already exists");
+        }
         return userRepository.save(user);
     }
 
