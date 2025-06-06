@@ -18,7 +18,8 @@ import java.time.LocalDateTime;
 public class Bed {
 
         @Id
-        private String bedId;
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long bedId;
 
         @Column(length = 20, nullable = false, unique = true)
         private String bedNumber;

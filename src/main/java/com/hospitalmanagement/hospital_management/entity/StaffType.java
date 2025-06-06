@@ -1,6 +1,8 @@
 package com.hospitalmanagement.hospital_management.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -18,6 +20,7 @@ import java.time.LocalDateTime;
 @Setter
 public class StaffType {
    @Id
+   @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long staffId;
     private String staffName;
     private String staffType;

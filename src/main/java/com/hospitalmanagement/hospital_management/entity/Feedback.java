@@ -20,7 +20,8 @@ public class Feedback {
 
         @Id
         @Column(length = 36)
-        private String feedbackId;
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long feedbackId;
 
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "patient_id", referencedColumnName = "patientId", nullable = false)

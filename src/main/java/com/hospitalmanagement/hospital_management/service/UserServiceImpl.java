@@ -1,6 +1,7 @@
 package com.hospitalmanagement.hospital_management.service;
 
 import com.hospitalmanagement.hospital_management.entity.User;
+import com.hospitalmanagement.hospital_management.exception.NotFoundException;
 import com.hospitalmanagement.hospital_management.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,7 +25,11 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public Optional<User> getUserById(Long id) {
+
+    public Optional<User> getUserById(Long id)
+    {
+        if(userRepository.findById(id).isEmpty())
+            throw new NotFoundException("Requested user does not exist");
         return userRepository.findById(id);
     }
 

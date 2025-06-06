@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,7 +19,8 @@ public class LabTest {
 
         @Id
         @Column(length = 36)
-        private String testId;
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long testId;
 
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "patient_id", referencedColumnName = "patientId", nullable = false)

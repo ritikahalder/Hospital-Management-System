@@ -1,8 +1,6 @@
 package com.hospitalmanagement.hospital_management.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,7 +19,8 @@ import java.time.LocalDateTime;
     public class StaffGrade {
         @Id
         @Column(length = 36)
-        private String staffGradeId;
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long staffGradeId;
 
         @Column(length = 50, nullable = false)
         private String gradeName;

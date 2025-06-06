@@ -17,6 +17,7 @@ import java.time.LocalDateTime;
 @Setter
 public class Address {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long addressId;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -20,7 +20,8 @@ public class MedicalRecord {
 
         @Id
         @Column(length = 36)
-        private String recordId;
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long recordId;
 
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "patient_id", referencedColumnName = "patientId", nullable = false)

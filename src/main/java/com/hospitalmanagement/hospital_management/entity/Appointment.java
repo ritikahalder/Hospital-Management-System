@@ -19,7 +19,8 @@ public class Appointment {
 
         @Id
         @Column(length = 36)
-        private String appointmentId;
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long appointmentId;
 
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "patient_id", referencedColumnName = "patientId", nullable = false)

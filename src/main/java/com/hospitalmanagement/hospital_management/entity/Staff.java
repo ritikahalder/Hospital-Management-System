@@ -11,9 +11,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 
-
 @Entity
-@Table(name = "medical_record")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -21,7 +19,8 @@ import java.time.LocalDateTime;
     public class Staff {
         @Id
         @Column(length = 36)
-        private String staffId;
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long staffId;
 
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "user_id", referencedColumnName = "userId", nullable = false)

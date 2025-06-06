@@ -1,8 +1,6 @@
 package com.hospitalmanagement.hospital_management.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
@@ -20,7 +19,8 @@ public class LabTestType {
 
         @Id
         @Column(length = 36)
-        private String testTypeId;
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long testTypeId;
 
         @Column(length = 100, nullable = false)
         private String name;

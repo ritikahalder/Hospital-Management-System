@@ -21,7 +21,8 @@ public class Billing {
 
         @Id
         @Column(length = 36)
-        private String billingId;
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long billingId;
 
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "patient_id", referencedColumnName = "patientId", nullable = false)

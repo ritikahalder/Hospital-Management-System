@@ -18,7 +18,8 @@ import java.time.LocalDateTime;
 public class Ward {
     @Id
     @Column(length = 36)
-    private String wardId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long wardId;
 
     @Column(length = 50, nullable = false)
     private String wardName;
